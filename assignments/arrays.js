@@ -75,7 +75,7 @@ let inventory = [
 
 // ==== Challenge 1 ====
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
-console.log(`Car 33 is a *car year goes here* *car make goes here* *car model goes here*`)
+// console.log(`Car 33 is a *car year goes here* *car make goes here* *car model goes here*`)
 
 for (let i = 0; i < inventory.length; i++) {
   if (inventory[i].id === 33) {
@@ -83,6 +83,10 @@ for (let i = 0; i < inventory.length; i++) {
     console.log(`Car 33 is a ${car.car_year} ${car.car_make} ${car.car_model}`)
   }
 }
+
+//Using find
+let car = inventory.find(car => car.id === 33)
+console.log(`Car 33 is a ${car.car_year} ${car.car_make} ${car.car_model}`)
 
 // ==== Challenge 2 ====
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
@@ -96,6 +100,9 @@ let carModels = []
 for (let i = 0; i < inventory.length; i++) {
   carModels.push(inventory[i].car_model)
 }
+// //Using maps
+// carModels = inventory.map(car => car.car_model)
+
 let carModelsSorted = carModels.sort(function(a, b) {
   if (a < b) return -1
   else if (a > b) return 1
@@ -113,6 +120,9 @@ for (let i = 0; i < inventory.length; i++) {
   carYears.push(inventory[i].car_year)
 }
 
+// //Using maps
+// carYears = inventory.map(car => car.car_year)
+
 for (let i = 0; i < carYears.length; i++) {
   console.log(carYears[i])
 }
@@ -125,6 +135,10 @@ for (let i = 0; i < inventory.length; i++) {
     oldCars.push(inventory[i])
   }
 }
+
+// //Using filters
+// oldCars = inventory.filter(car => car.car_year < 2000)
+
 console.log(oldCars.length)
 
 // ==== Challenge 6 ====
@@ -135,4 +149,7 @@ for (let i = 0; i < inventory.length; i++) {
     BMWAndAudi.push(inventory[i])
   }
 }
+
+// //using filters
+// BMWAndAudi = inventory.filter(car => car.car_make === 'Audi' || car.car_make === 'BMW')
 console.log(JSON.stringify(BMWAndAudi))
